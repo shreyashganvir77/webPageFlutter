@@ -1,51 +1,46 @@
 import 'package:flutter/material.dart';
-
-List<String> listItems = [
-  'career',
-  'accomadation',
-  'department',
-  'enjoy',
-  'canteen',
-];
-List<String> result = [];
-List<bool> selectedItem = [
-  false,
-  false,
-  false,
-  false,
-  false,
-];
+import 'package:testapp/util/tags.dart';
 
 class MultiSelect extends StatefulWidget {
+  final List<String> items;
+  final List<bool> itemAns;
+
+  MultiSelect({this.items, this.itemAns});
+
   @override
-  _MultiSelectState createState() => _MultiSelectState();
+  _MultiSelectState createState() =>
+      _MultiSelectState(itemAns: itemAns, items: items);
 }
 
 class _MultiSelectState extends State<MultiSelect> {
+  final List<String> items;
+  final List<bool> itemAns;
+  _MultiSelectState({this.items, this.itemAns});
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
-      itemCount: listItems.length,
+      itemCount: items.length,
       itemBuilder: (context, index) {
         return CheckboxListTile(
-            value: selectedItem[index],
+            value: itemAns[index],
             title: Text(
-              listItems[index],
+              items[index],
             ),
             onChanged: (val) {
               setState(() {
                 if (val) {
                   result.add(
-                    listItems[index],
+                    items[index],
                   );
                 } else {
                   result.remove(
-                    listItems[index],
+                    items[index],
                   );
                 }
-                selectedItem[index] = val;
+                itemAns[index] = val;
               });
             });
       },

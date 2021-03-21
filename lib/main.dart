@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:testapp/widgets/introCard.dart';
 import 'package:testapp/widgets/multiSelect.dart';
 import 'package:testapp/widgets/topDashboardWid.dart';
+import 'util/tags.dart';
 
 void main() {
   runApp(MaterialApp(home: MyApp()));
@@ -115,7 +116,10 @@ class _MyAppState extends State<MyApp> {
                                       ),
                                       height: 200.0,
                                       width: 180,
-                                      child: MultiSelect(),
+                                      child: MultiSelect(
+                                        itemAns: checkAcco,
+                                        items: accomodation,
+                                      ),
                                     ),
                                     Row(
                                       children: [
@@ -124,9 +128,9 @@ class _MyAppState extends State<MyApp> {
                                             setState(() {
                                               _visible = false;
                                             });
-                                            selectedItem.fillRange(
-                                                0, listItems.length, false);
-                                            print(selectedItem);
+                                            checkAcco.fillRange(
+                                                0, accomodation.length, false);
+                                            print(checkAcco);
                                             result.clear();
                                           },
                                           child: Text(
@@ -144,12 +148,12 @@ class _MyAppState extends State<MyApp> {
                                             setState(() {
                                               _visible = false;
                                             });
-                                            selectedItem.fillRange(
-                                                0, listItems.length, false);
+                                            checkAcco.fillRange(
+                                                0, accomodation.length, false);
                                             print(result);
                                           },
                                           child: Text(
-                                            'Okay',
+                                            'Apply',
                                             style: GoogleFonts.lato(
                                                 fontSize: 16.0,
                                                 color: Colors.black),
