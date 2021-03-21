@@ -19,31 +19,29 @@ class _MultiSelectState extends State<MultiSelect> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      scrollDirection: Axis.vertical,
-      shrinkWrap: true,
-      itemCount: items.length,
-      itemBuilder: (context, index) {
-        return CheckboxListTile(
-            value: itemAns[index],
-            title: Text(
-              items[index],
-            ),
-            onChanged: (val) {
-              setState(() {
-                if (val) {
-                  result.add(
-                    items[index],
-                  );
-                } else {
-                  result.remove(
-                    items[index],
-                  );
-                }
-                itemAns[index] = val;
-              });
-            });
-      },
+    return Wrap(
+      children: [
+        for (int index = 0; index < items.length; index++)
+          CheckboxListTile(
+              value: itemAns[index],
+              title: Text(
+                items[index],
+              ),
+              onChanged: (val) {
+                setState(() {
+                  if (val) {
+                    result.add(
+                      items[index],
+                    );
+                  } else {
+                    result.remove(
+                      items[index],
+                    );
+                  }
+                  itemAns[index] = val;
+                });
+              })
+      ],
     );
   }
 }

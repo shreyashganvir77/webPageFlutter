@@ -9,30 +9,30 @@ List<String> career = [
   "Internship",
   "Projects",
 ];
-List<List> tags = [accomodation, infra, dept, career, skills, enjoyment, exam];
+List<bool> checkCareer = [false, false, false];
 List<String> enjoyment = [
   "Restaurants and Cafe",
   "Travel Destinations",
   "Enttertainment Centres",
   "Places to chill near College",
 ];
-
+List<bool> checkenjoy = [false, false, false, false];
 List<String> exam = [
   "Preparation",
 ];
-
+List<bool> checkExam = [false];
 List<String> infra = [
   "Campus",
   "Labs",
   "Library",
 ];
-
+List<bool> checkInfra = [false, false, false];
 List<String> skills = [
   "Soft Skills",
   "Programming",
   "Hardware",
 ];
-
+List<bool> checkSkills = [false, false, false];
 List<String> dept = [
   "Applied Geology",
   "Architecture",
@@ -54,5 +54,45 @@ List<String> dept = [
   "Metallurgy Engineering",
   "Workshop",
 ];
+List<bool> checkDept = [
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+];
 
+List<List> tags = [accomodation, infra, dept, career, skills, enjoyment, exam];
+List<List> tagsAns = [
+  checkAcco,
+  checkInfra,
+  checkDept,
+  checkCareer,
+  checkSkills,
+  checkenjoy,
+  checkExam
+];
+List<String> mainTag = [
+  "Accomodation",
+  "Infrastructure",
+  "Department",
+  "Career",
+  "Skills",
+  "Enjoyment",
+  "Exam"
+];
 List<String> result = [];

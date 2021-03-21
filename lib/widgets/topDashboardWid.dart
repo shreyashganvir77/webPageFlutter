@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -43,7 +44,7 @@ class TopDashboardWid extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                width: 40.0,
+                width: 81.0,
               ),
               Container(
                 height: 100.0,
@@ -51,21 +52,25 @@ class TopDashboardWid extends StatelessWidget {
                 color: Color(0xFF2E3037),
               ),
               SizedBox(
-                width: 10.0,
+                width: 25.0,
               ),
-              TextButton(
-                onPressed: () {},
-                child: Text(
-                  'Home',
-                  style: GoogleFonts.lato(
-                    fontSize: 25.0,
-                    fontWeight: FontWeight.w300,
-                    color: Colors.white,
+              ButtonTheme(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0)),
+                child: TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Home',
+                    style: GoogleFonts.lato(
+                      fontSize: 25.0,
+                      fontWeight: FontWeight.w300,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
               SizedBox(
-                width: 10.0,
+                width: 25.0,
               ),
               TextButton(
                 onPressed: () {},
@@ -79,7 +84,7 @@ class TopDashboardWid extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                width: 10.0,
+                width: 25.0,
               ),
               TextButton(
                 onPressed: () {},
@@ -93,7 +98,7 @@ class TopDashboardWid extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                width: 10.0,
+                width: 25.0,
               ),
               TextButton(
                 onPressed: () {},
