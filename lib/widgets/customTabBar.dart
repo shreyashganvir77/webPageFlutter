@@ -2,8 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomTabBar extends StatelessWidget {
+  final double height;
+  final double width;
+  final double fontSize;
+  final int length;
+  final List<String> tabValues;
   const CustomTabBar({
     Key key,
+    this.height,
+    this.width,
+    this.fontSize,
+    this.length,
+    this.tabValues,
   }) : super(key: key);
 
   @override
@@ -15,12 +25,15 @@ class CustomTabBar extends StatelessWidget {
           color: Colors.white,
           borderRadius: BorderRadius.circular(3.0),
         ),
-        height: 100.0,
-        width: 750.0,
+        height: height,
+        width: width,
         child: DefaultTabController(
-          length: 4,
+          length: length,
           initialIndex: 0,
           child: TabBar(
+            onTap: (int val) {
+              print(val);
+            },
             labelColor: Color(0xFF25323A),
             labelPadding: EdgeInsets.only(left: 2.0, right: 2.0),
             indicatorPadding: EdgeInsets.only(left: 12.0, right: 12.0),
@@ -28,7 +41,7 @@ class CustomTabBar extends StatelessWidget {
             unselectedLabelColor: Color(0xFF94969B),
             unselectedLabelStyle: GoogleFonts.roboto(
               fontWeight: FontWeight.w400,
-              fontSize: 23.0,
+              fontSize: fontSize,
             ),
             indicatorWeight: 2.0,
             labelStyle: TextStyle(
@@ -42,18 +55,10 @@ class CustomTabBar extends StatelessWidget {
               ),
             ),
             tabs: [
-              Tab(
-                text: 'Recent Questions',
-              ),
-              Tab(
-                text: 'Most Answered',
-              ),
-              Tab(
-                text: 'Recent Answers',
-              ),
-              Tab(
-                text: 'Most Voted',
-              ),
+              for (int i = 0; i < tabValues.length; i++)
+                Tab(
+                  text: tabValues[i],
+                ),
             ],
           ),
         ),
