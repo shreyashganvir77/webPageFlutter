@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:testapp/util/tags.dart';
+import 'package:testapp/widgets/introCard.dart';
+import 'package:testapp/widgets/middlePageView.dart';
+import 'package:testapp/widgets/multiSelect.dart';
+import 'package:testapp/widgets/sideBarWid.dart';
+import 'package:testapp/widgets/sideQuesWid.dart';
 
 class TopDashboardWid extends StatelessWidget {
-  const TopDashboardWid({
-    Key key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,34 +17,34 @@ class TopDashboardWid extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         height: 75.0,
         decoration: BoxDecoration(
-          color: Color(0xFF272930),
+          color: Colors.white,
           borderRadius: BorderRadius.circular(5.0),
         ),
         child: Center(
           child: Row(
             children: [
+              SizedBox(
+                width: 20.0,
+              ),
               Image(
                 image: AssetImage(
-                  'assets/images/logo.png',
+                  'assets/images/cclogo01.png',
                 ),
-                color: Colors.white,
-                height: 50.0,
-                width: 50.0,
               ),
               SizedBox(
                 width: 5.0,
               ),
-              GestureDetector(
-                onTap: () {},
-                child: Text(
-                  'ICDB',
-                  style: GoogleFonts.lato(
-                    fontSize: 50.0,
-                    fontWeight: FontWeight.w300,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
+              // GestureDetector(
+              //   onTap: () {},
+              //   child: Text(
+              //     'ICDB',
+              //     style: GoogleFonts.lato(
+              //       fontSize: 50.0,
+              //       fontWeight: FontWeight.w300,
+              //       color: Colors.white,
+              //     ),
+              //   ),
+              // ),
               SizedBox(
                 width: 81.0,
               ),
@@ -111,6 +113,38 @@ class TopDashboardWid extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(
+                width: 200.0,
+              ),
+              Container(
+                height: 40.0,
+                width: 300.0,
+                child: TextFormField(
+                  cursorHeight: 20.0,
+                  style: GoogleFonts.roboto(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.normal,
+                    color: Colors.white,
+                  ),
+                  decoration: InputDecoration(
+                    hintText: 'Type Search Words',
+                    hintStyle: GoogleFonts.roboto(
+                      fontSize: 14.0,
+                      color: Colors.grey,
+                      fontWeight: FontWeight.normal,
+                      fontStyle: FontStyle.italic,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5.0),
+                      borderSide: BorderSide(color: Colors.transparent),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5.0),
+                      borderSide: BorderSide(color: Colors.black),
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
         ),
