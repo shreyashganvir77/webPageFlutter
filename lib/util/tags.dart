@@ -78,13 +78,13 @@ List<bool> checkDept = [
 
 List<List> tags = [accomodation, infra, dept, career, skills, enjoyment, exam];
 List<String> tagNames = [
-  "Accommodation",
-  "Infrastructure",
-  "Department",
-  "Career",
-  "Skills",
-  "Enjoyment",
-  "Exams",
+  "Accommodation:",
+  "Infrastructure:",
+  "Department:",
+  "Career:",
+  "Skills:",
+  "Enjoyment:",
+  "Exams:",
 ];
 List<List> tagsAns = [
   checkAcco,

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:testapp/widgets/addQuestion.dart';
 import 'package:testapp/widgets/customDrawer.dart';
 
 class MobileView extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -10,7 +12,14 @@ class MobileView extends StatelessWidget {
       initialIndex: 0,
       child: Scaffold(
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => AddQuestionMobile(),
+              ),
+            );
+          },
           backgroundColor: Colors.blue,
           child: Icon(Icons.add),
         ),
@@ -46,7 +55,7 @@ class MobileView extends StatelessWidget {
             ],
           ),
           elevation: 3.0,
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.black,
           title: Text(
             'College Connect',
             style: GoogleFonts.roboto(
@@ -56,7 +65,7 @@ class MobileView extends StatelessWidget {
           ),
         ),
         drawer: CustomDrawer(),
-        backgroundColor: Colors.blue,
+        backgroundColor: Color(0xFFF2F2F2),
         body: TabBarView(
           children: [
             Expanded(

@@ -31,7 +31,7 @@ class _MultiSelectState extends State<MultiSelect> {
             tagNames[index],
             style: GoogleFonts.roboto(
               fontSize: 18.0,
-              fontWeight: FontWeight.normal,
+              fontWeight: FontWeight.bold,
               color: Colors.black,
             ),
           ),
