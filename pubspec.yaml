@@ -24,7 +24,10 @@ dependencies:
   flutter:
     sdk: flutter
   google_fonts: ^2.0.0
+  provider: ^5.0.0
   google_sign_in: ^5.0.0
+  firebase_auth: ^1.0.0
+  firebase_core: ^1.0.0
   flutter_svg: ^0.19.3
   responsive_framework: ^0.1.0
   font_awesome_flutter: ^9.0.0
