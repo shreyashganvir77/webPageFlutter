@@ -3,8 +3,16 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:testapp/util/tags.dart';
 import 'package:testapp/widgets/multiSelect.dart';
 
-class AddQuestionMobile extends StatelessWidget {
+class AddQuestionMobile extends StatefulWidget {
+  @override
+  _AddQuestionMobileState createState() => _AddQuestionMobileState();
+}
+
+class _AddQuestionMobileState extends State<AddQuestionMobile> {
   final List<String> dialogResult = [];
+  bool visible = false;
+  String selectedTag;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -111,6 +119,15 @@ class AddQuestionMobile extends StatelessWidget {
                   ),
                 ),
               ),
+              Wrap(
+                children: [
+                  for (int i = 0; i < result.length; i++)
+                    CustomTagCard(
+                      name: result[i],
+                      isVisible: true,
+                    ),
+                ],
+              ),
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: SizedBox(
@@ -152,6 +169,13 @@ class AddQuestionMobile extends StatelessWidget {
                             TextButton(
                               onPressed: () {
                                 print(result);
+                                setState(
+                                  () {
+                                    visible = true;
+                                  },
+                                );
+                                Navigator.of(context, rootNavigator: true)
+                                    .pop();
                               },
                               child: Text('Apply'),
                             ),
@@ -171,6 +195,76 @@ class AddQuestionMobile extends StatelessWidget {
                 ),
               )
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomTagCard extends StatefulWidget {
+  final bool isVisible;
+  final String name;
+
+  CustomTagCard({this.isVisible, this.name});
+
+  @override
+  _CustomTagCardState createState() =>
+      _CustomTagCardState(name: name, isVisible: isVisible);
+}
+
+class _CustomTagCardState extends State<CustomTagCard> {
+  bool isVisible;
+  final String name;
+  _CustomTagCardState({this.isVisible, this.name});
+  @override
+  Widget build(BuildContext context) {
+    return Visibility(
+      visible: isVisible,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 8.0),
+        child: Card(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+          elevation: 5.0,
+          child: Container(
+            height: 30.0,
+            width: 140.0,
+            decoration: BoxDecoration(
+              color: Colors.pinkAccent,
+              borderRadius: BorderRadius.circular(30.0),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: 30.0,
+                  width: 90.0,
+                  child: Center(
+                    child: Text(
+                      widget.name,
+                      style: GoogleFonts.roboto(
+                        color: Colors.white,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {
+                    result.remove(widget.name);
+                    setState(() {
+                      isVisible = false;
+                    });
+                  },
+                  icon: Icon(
+                    Icons.clear,
+                    size: 20.0,
+                  ),
+                  color: Colors.black,
+                )
+              ],
+            ),
           ),
         ),
       ),
