@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:testapp/screens/aboutUs.dart';
 import 'package:testapp/util/tags.dart';
 import 'package:testapp/widgets/multiSelect.dart';
 
@@ -21,10 +22,15 @@ class _CustomDrawerState extends State<CustomDrawer> {
         child: ListView(
           // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            //Logo
             Image(
-              image: AssetImage('assets/images/cclogobig.png'),
+              image: AssetImage('assets/images/newlogo.png'),
               height: 100.0,
             ),
+            SizedBox(
+              height: 25.0,
+            ),
+            // LogIn button
             Center(
               child: SizedBox(
                 height: 35.0,
@@ -42,16 +48,21 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ),
               ),
             ),
+            //Tag Row
             Container(
+              alignment: Alignment.center,
               height: 40.0,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15.0),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Icon(FontAwesomeIcons.tags),
+                    Icon(
+                      FontAwesomeIcons.tags,
+                      size: 20.0,
+                    ),
                     SizedBox(
-                      width: 10.0,
+                      width: 15.0,
                     ),
                     Text(
                       'Tags',
@@ -75,12 +86,78 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ),
               ),
             ),
-            SizedBox(
-              height: 15.0,
-            ),
+            //Tags Container
             Visibility(
               visible: visibleTag,
               child: ShowTags(),
+            ),
+            //Blog Row
+            Container(
+              alignment: Alignment.center,
+              height: 40.0,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Center(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Icon(
+                        FontAwesomeIcons.blog,
+                        size: 18.0,
+                      ),
+                      SizedBox(
+                        width: 15.0,
+                      ),
+                      Text(
+                        'Blogs',
+                        style: GoogleFonts.roboto(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            //About Us! Row
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AboutUs(),
+                  ),
+                );
+              },
+              child: Container(
+                alignment: Alignment.center,
+                height: 40.0,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Icon(
+                        FontAwesomeIcons.info,
+                        size: 15.0,
+                      ),
+                      SizedBox(
+                        width: 15.0,
+                      ),
+                      Text(
+                        'About Us',
+                        style: GoogleFonts.roboto(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ),
           ],
         ),

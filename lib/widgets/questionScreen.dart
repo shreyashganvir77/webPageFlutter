@@ -33,11 +33,13 @@ class _AddQuestionMobileState extends State<AddQuestionMobile> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  //Close Button
                   Padding(
                     padding: const EdgeInsets.all(25.0),
                     child: TextButton(
                       onPressed: () {
                         Navigator.pop(context);
+                        result.clear();
                       },
                       child: Text(
                         'Close',
@@ -46,6 +48,7 @@ class _AddQuestionMobileState extends State<AddQuestionMobile> {
                       ),
                     ),
                   ),
+                  //Submit Button
                   Padding(
                     padding: const EdgeInsets.all(25.0),
                     child: TextButton(

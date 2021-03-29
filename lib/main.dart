@@ -1,22 +1,7 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:testapp/util/responsiveLayout.dart';
-import 'package:provider/provider.dart';
-// import 'package:google_fonts/google_fonts.dart';
-// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-// import 'package:testapp/widgets/customTabBar.dart';
-// import 'package:testapp/widgets/introCard.dart';
-// import 'package:testapp/widgets/middlePageView.dart';
-// import 'package:testapp/widgets/multiSelect.dart';
-// import 'package:testapp/widgets/questionCard.dart';
-// import 'package:testapp/widgets/sideBarWid.dart';
-// import 'package:testapp/widgets/sideQuesWid.dart';
-// import 'package:testapp/widgets/topDashboardWid.dart';
-// import 'util/tags.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
