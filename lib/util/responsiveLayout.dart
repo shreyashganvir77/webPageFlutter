@@ -10,12 +10,12 @@ class LayoutChanger extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxWidth > 1200) {
+      if (constraints.maxWidth > 971) {
         print(constraints.maxWidth);
         return DesktopView();
-      } else if (constraints.maxWidth > 600 && constraints.maxWidth < 1200) {
+      } else if (constraints.maxWidth > 600 && constraints.maxWidth < 970) {
         print(constraints.maxWidth);
-        return DesktopView();
+        return MobileView();
       } else {
         return MobileView();
       }

@@ -18,13 +18,8 @@ class MiddlePageView extends StatelessWidget {
           height: 80,
           width: 750,
           fontSize: 23.0,
-          length: 4,
-          tabValues: [
-            'Recent Questions',
-            'Most Answered',
-            'Recent Answers',
-            'Trending'
-          ],
+          length: 3,
+          tabValues: ['Recent Questions', 'Most Answered', 'Trending'],
         ),
         SizedBox(
           height: 2.0,

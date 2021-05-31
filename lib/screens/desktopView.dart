@@ -7,19 +7,18 @@ import 'package:testapp/widgets/sideBarWid.dart';
 import 'package:testapp/widgets/sideQuesWid.dart';
 import 'package:testapp/widgets/topDashboardWid.dart';
 
+// color = 0xFFF2F2F2
+
 class DesktopView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF2F2F2),
+      backgroundColor: Colors.white,
       body: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+          // The top NavBar
           TopDashboardWid(),
-          Padding(
-            padding: const EdgeInsets.only(left: 25.0, right: 25.0),
-            child: IntroCard(),
-          ),
           Expanded(
             child: ListView(
               shrinkWrap: true,
@@ -31,6 +30,7 @@ class DesktopView extends StatelessWidget {
                     Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
+                        // The Right side navbar
                         SideBar(),
                         SizedBox(
                           height: MediaQuery.of(context).size.height,

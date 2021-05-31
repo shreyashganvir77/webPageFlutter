@@ -18,22 +18,6 @@ class _SideBarState extends State<SideBar> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          width: 150.0,
-          height: 50.0,
-          child: ListTile(
-            leading: Icon(
-              Icons.home,
-              color: Color(0xFF26333B),
-            ),
-            title: Text(
-              'Home',
-              style:
-                  GoogleFonts.lato(fontSize: 18.0, color: Color(0xFFFF26333B)),
-            ),
-            onTap: () {},
-          ),
-        ),
-        Container(
           height: 50.0,
           width: 150.0,
           child: ListTile(
