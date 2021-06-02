@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-class AuthServie {
+class AuthService {
   final FirebaseAuth auth;
-  AuthServie({this.auth});
+  AuthService({this.auth});
 
-  Stream<User> get authStateChanges => auth.authStateChanges();
+  Stream<User> get authStateChange => auth.authStateChanges();
 
   Future<UserCredential> signInWithGoogle() async {
     try {

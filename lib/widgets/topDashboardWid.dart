@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:testapp/screens/authDialog.dart';
 
 class TopDashboardWid extends StatelessWidget {
   @override
@@ -119,6 +119,26 @@ class TopDashboardWid extends StatelessWidget {
                               color: Colors.white,
                             ),
                             onPressed: () {},
+                          ),
+                          SizedBox(
+                            width: 20.0,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AuthDialog();
+                                  });
+                            },
+                            child: Text(
+                              'Sign In',
+                              style: GoogleFonts.lato(
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.white,
+                              ),
+                            ),
                           ),
                           SizedBox(
                             width: 20.0,

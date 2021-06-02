@@ -1,11 +1,24 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:testapp/screens/authDialog.dart';
 import 'package:testapp/util/responsiveLayout.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
+import 'package:testapp/util/authentication.dart';
 
-Future<void> main() async {
+void main() {
   runApp(
-    MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: MyApp(),
+    MultiProvider(
+      providers: [
+        Provider<AuthService>(
+          create: (_) => AuthService(auth: FirebaseAuth.instance),
+        ),
+        StreamProvider(
+          create: (context) => context.read<AuthService>().authStateChange,
+          initialData: null,
+        ),
+      ],
+      child: MyApp(),
     ),
   );
 }
@@ -17,10 +30,33 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String dropdownValue = 'One';
-  bool changed = false;
   @override
   Widget build(BuildContext context) {
-    return LayoutChanger();
+    return MaterialApp(
+      title: 'CC',
+      home: Consumer<User>(builder: (_, user, __) {
+        if (user == null) {
+          return AuthDialog();
+        } else {
+          return LayoutChanger();
+        }
+      }),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
+
+// class Result extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     dynamic user = context.watch<AuthService>().authStateChange;
+//     if (user == null) {
+//       print('no user');
+//       return AuthDialog();
+//     } else {
+//       print('user is there');
+//       print(user);
+//       return LayoutChanger();
+//     }
+//   }
+// }
