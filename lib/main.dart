@@ -34,14 +34,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'CC',
-      home: Consumer<User>(builder: (_, user, __) {
-        if (user == null) {
-          return AuthDialog();
-        } else {
-          return LayoutChanger();
-        }
-      }),
-      debugShowCheckedModeBanner: false,
+      home: LayoutChanger(),
     );
   }
 }

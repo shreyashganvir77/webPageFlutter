@@ -1,7 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:testapp/screens/authDialog.dart';
+import 'package:testapp/util/authentication.dart';
+import 'package:provider/provider.dart';
 
 class TopDashboardWid extends StatelessWidget {
   @override
@@ -123,23 +126,30 @@ class TopDashboardWid extends StatelessWidget {
                           SizedBox(
                             width: 20.0,
                           ),
-                          InkWell(
-                            onTap: () {
-                              showDialog(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return AuthDialog();
-                                  });
-                            },
-                            child: Text(
-                              'Sign In',
-                              style: GoogleFonts.lato(
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
+                          Consumer<User>(builder: (_, user, __) {
+                            if (user == null) {
+                              print(user);
+                              return InkWell(
+                                onTap: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return AuthDialog();
+                                      });
+                                },
+                                child: Text(
+                                  'Sign In',
+                                  style: GoogleFonts.lato(
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              );
+                            } else {
+                              return CircleAvatar();
+                            }
+                          }),
                           SizedBox(
                             width: 20.0,
                           ),
