@@ -55,7 +55,7 @@ class AuthService {
 
   Future<String> signOut() async {
     //final GoogleSignInAccount googleUser = await GoogleSignIn().signIn();
-    await GoogleSignIn().disconnect();
+    //await GoogleSignIn().disconnect();
     await auth.signOut();
     return "Signied Out Successfully";
   }

@@ -168,7 +168,86 @@ class _AuthDialogState extends State<AuthDialog> {
                     ),
                   ],
                 ),
-                Center(),
+                //Center(),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Center(
+                    child: Text(
+                      'Or SignIn Using',
+                      style: GoogleFonts.roboto(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    MaterialButton(
+                      minWidth: 0.0,
+                      shape: CircleBorder(
+                        side: BorderSide(color: Colors.white),
+                      ),
+                      color: Colors.white70,
+                      elevation: 3.0,
+                      onPressed: () async {
+                        dynamic result = await context
+                            .read<AuthService>()
+                            .signInWithGoogle();
+                        if (result == "Signed In Successfully") {
+                          print('Signed In');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DesktopView(),
+                            ),
+                          );
+                        } else {
+                          print("Error");
+                        }
+                      },
+                      child: CircleAvatar(
+                        radius: 22.0,
+                        backgroundImage: AssetImage(
+                          'assets/images/google.png',
+                        ),
+                      ),
+                    ),
+                    MaterialButton(
+                      shape: CircleBorder(
+                        side: BorderSide(color: Colors.white),
+                      ),
+                      color: Colors.white70,
+                      elevation: 3.0,
+                      minWidth: 0.0,
+                      onPressed: () {},
+                      child: CircleAvatar(
+                        radius: 22.0,
+                        backgroundImage: AssetImage(
+                          'assets/images/facebook.png',
+                        ),
+                      ),
+                    ),
+                    MaterialButton(
+                      shape: CircleBorder(
+                        side: BorderSide(color: Colors.white),
+                      ),
+                      color: Colors.blue,
+                      elevation: 3.0,
+                      minWidth: 0.0,
+                      clipBehavior: Clip.antiAlias,
+                      onPressed: () {},
+                      child: CircleAvatar(
+                        radius: 22.0,
+                        backgroundImage: AssetImage(
+                          'assets/images/twitter.png',
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),

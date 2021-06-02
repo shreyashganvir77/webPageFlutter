@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:testapp/screens/authDialog.dart';
+import 'package:testapp/screens/desktopView.dart';
 import 'package:testapp/util/authentication.dart';
 import 'package:provider/provider.dart';
 
@@ -147,7 +148,16 @@ class TopDashboardWid extends StatelessWidget {
                                 ),
                               );
                             } else {
-                              return CircleAvatar();
+                              return TextButton(
+                                onPressed: () async {
+                                  await context.read<AuthService>().signOut();
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => DesktopView()));
+                                },
+                                child: Text('Sign Out'),
+                              );
                             }
                           }),
                           SizedBox(
